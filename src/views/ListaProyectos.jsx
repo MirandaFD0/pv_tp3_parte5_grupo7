@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react"
+import { Box, Typography, TextField, Grid } from "@mui/material"
 import proyectoService from "../services/proyectoService"
 import ProyectoCard from "../components/ProyectoCard"
 import RegistroActividad from "../components/RegistroActividad"
@@ -45,21 +46,33 @@ const ListaProyectos = () => {
   }
 
   return (
-    <main>
-      <h2>Listado de Proyectos</h2>
-      <section>
-        <h3>Buscar Proyecto</h3>
-        <input type="text" placeholder="Buscá un proyecto..." value={busqueda} onChange={handleBuscar} />
-      </section>
+    <Box>
+      <Typography variant="h4" component="h2" gutterBottom fontWeight="bold">
+        Listado de Proyectos
+      </Typography>
+      <Box sx={{ mb: 4, p: 2, bgcolor: 'background.paper', borderRadius: 1, boxShadow: 1 }}>
+        <Typography variant="h6" gutterBottom>
+          Buscar Proyecto
+        </Typography>
+        <TextField fullWidth variant="outlined" placeholder="Buscá un proyecto..." value={busqueda} onChange={handleBuscar} />
+      </Box>
       <FormularioProyecto onAgregar={handleAgregar} />
-      <h3>Proyectos</h3>
-      <section>
+      <Typography variant="h5" component="h3" align="center" sx={{ mt: 5, mb: 3, fontWeight: 'medium' }}>
+        Proyectos
+      </Typography>
+      <Grid container spacing={3}>
         {proyectoService.buscarProyecto(busqueda).map((proyecto) => (
-          <ProyectoCard key={proyecto.id} proyecto={proyecto} onEliminar={handleEliminar} />
+          <Grid item xs={12} sm={6} md={4} key={proyecto.id}>
+            <ProyectoCard proyecto={proyecto} onEliminar={handleEliminar} />
+          </Grid>
         ))}
-      </section>
-      {ultimaActualizacion && <RegistroActividad fechaActualizacion={ultimaActualizacion} />}
-    </main>
+      </Grid>
+      {ultimaActualizacion && (
+        <Box sx={{ mt: 4 }}>
+          <RegistroActividad fechaActualizacion={ultimaActualizacion} />
+        </Box>
+      )}
+    </Box>
   )
 }
 
