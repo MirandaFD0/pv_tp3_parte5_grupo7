@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Box, Paper, Typography, TextField, Select, MenuItem, Button, Grid, FormControl, InputLabel } from "@mui/material"
 
 const FormularioProyecto = ({ onAgregar }) => {
   const [nuevoProyecto, setNuevoProyecto] = useState({
@@ -62,36 +63,61 @@ const FormularioProyecto = ({ onAgregar }) => {
   }
 
   return (
-    <section>
-      <h3>Agregar Proyecto</h3>
-      <div>
-        <input type="text" name="titulo" placeholder="Título" value={nuevoProyecto.titulo} onChange={handleChange} />
-        <input type="text" name="categoria" placeholder="Categoría" value={nuevoProyecto.categoria} onChange={handleChange} />
-        <select name="estado" value={nuevoProyecto.estado} onChange={handleChange}>
-          <option value="En curso">En curso</option>
-          <option value="Finalizado">Finalizado</option>
-        </select>
-      </div>
-      <div>
-        <input type="text" placeholder="Párrafo 1" value={nuevoProyecto.descripcion[0]} onChange={(e) => handleDescripcion(0, e.target.value)} />
-        <input type="text" placeholder="Párrafo 2" value={nuevoProyecto.descripcion[1]} onChange={(e) => handleDescripcion(1, e.target.value)} />
-      </div>
-      <div>
+    <Paper elevation={2} sx={{ p: 3, mb: 4 }}>
+      <Typography variant="h6" gutterBottom>
+        Agregar Proyecto
+      </Typography>
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grid item xs={12} sm={4}>
+          <TextField fullWidth label="Título" name="titulo" value={nuevoProyecto.titulo} onChange={handleChange} size="small" />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <TextField fullWidth label="Categoría" name="categoria" value={nuevoProyecto.categoria} onChange={handleChange} size="small" />
+        </Grid>
+        <Grid item xs={12} sm={4}>
+          <FormControl fullWidth size="small">
+            <InputLabel>Estado</InputLabel>
+            <Select name="estado" value={nuevoProyecto.estado} label="Estado" onChange={handleChange}>
+              <MenuItem value="En curso">En curso</MenuItem>
+              <MenuItem value="Finalizado">Finalizado</MenuItem>
+            </Select>
+          </FormControl>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} sx={{ mb: 2 }}>
+        <Grid item xs={12} sm={6}>
+          <TextField fullWidth label="Párrafo 1" value={nuevoProyecto.descripcion[0]} onChange={(e) => handleDescripcion(0, e.target.value)} size="small" />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField fullWidth label="Párrafo 2" value={nuevoProyecto.descripcion[1]} onChange={(e) => handleDescripcion(1, e.target.value)} size="small" />
+        </Grid>
+      </Grid>
+      <Grid container spacing={2} sx={{ mb: 2 }}>
         {nuevoProyecto.recursos.map((recurso, index) => (
-          <input key={index} type="text" placeholder={`URL ${recurso.tipo}`} value={recurso.url} onChange={(e) => handleRecurso(index, e.target.value)} />
+          <Grid item xs={12} sm={4} key={index}>
+            <TextField fullWidth label={`URL ${recurso.tipo}`} value={recurso.url} onChange={(e) => handleRecurso(index, e.target.value)} size="small" />
+          </Grid>
         ))}
-      </div>
-      <div>
-        {nuevoProyecto.equipo.map((miembro, index) => (
-          <div key={index}>
-            <input type="text" placeholder="Nombre" value={miembro.nombre} onChange={(e) => handleEquipo(index, 'nombre', e.target.value)} />
-            <input type="text" placeholder="Rol" value={miembro.rol} onChange={(e) => handleEquipo(index, 'rol', e.target.value)} />
-          </div>
-        ))}
-        <button onClick={agregarMiembro}>+ Agregar miembro</button>
-        <button onClick={handleSubmit}>Agregar Proyecto</button>
-      </div>
-    </section>
+      </Grid>
+      {nuevoProyecto.equipo.map((miembro, index) => (
+        <Grid container spacing={2} sx={{ mb: 2 }} key={index}>
+          <Grid item xs={12} sm={6}>
+            <TextField fullWidth label="Nombre" value={miembro.nombre} onChange={(e) => handleEquipo(index, 'nombre', e.target.value)} size="small" />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField fullWidth label="Rol" value={miembro.rol} onChange={(e) => handleEquipo(index, 'rol', e.target.value)} size="small" />
+          </Grid>
+        </Grid>
+      ))}
+      <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+        <Button variant="outlined" color="secondary" onClick={agregarMiembro}>
+          + Agregar miembro
+        </Button>
+        <Button variant="contained" color="primary" onClick={handleSubmit}>
+          Agregar Proyecto
+        </Button>
+      </Box>
+    </Paper>
   )
 }
 

@@ -1,8 +1,10 @@
+import { Alert } from '@mui/material'
+
 const RegistroActividad = ({ fechaActualizacion }) => {
   return (
-    <aside>
-      <p>{fechaActualizacion}</p>
-    </aside>
+    <Alert severity="info" sx={{ mt: 2, mb: 2 }}>
+      {fechaActualizacion}
+    </Alert>
   )
 }
 
