@@ -68,7 +68,7 @@ const DetalleProyecto = () => {
               <ListItemText
                 primary={miembro.nombre}
                 secondary={miembro.rol}
-                primaryTypographyProps={{ sx: { fontWeight: 'medium' } }}
+                slotProps={{ primary: { sx: { fontWeight: 'medium' } } }}
               />
             </ListItem>
           ))}

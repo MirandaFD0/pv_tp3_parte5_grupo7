@@ -55,16 +55,16 @@ const PerfilUsuario = () => {
           <>
             <List>
               <ListItem disablePadding sx={{ py: 1 }}>
-                <ListItemText primary="Nombre" secondary={usuario.nombre} primaryTypographyProps={{ sx: { fontWeight: 'bold' } }} />
+                <ListItemText primary="Nombre" secondary={usuario.nombre} slotProps={{ primary: { sx: { fontWeight: 'bold' } } }} />
               </ListItem>
               <ListItem disablePadding sx={{ py: 1 }}>
-                <ListItemText primary="DNI" secondary={usuario.dni} primaryTypographyProps={{ sx: { fontWeight: 'bold' } }} />
+                <ListItemText primary="DNI" secondary={usuario.dni} slotProps={{ primary: { sx: { fontWeight: 'bold' } } }} />
               </ListItem>
               <ListItem disablePadding sx={{ py: 1 }}>
-                <ListItemText primary="Rol" secondary={usuario.rol} primaryTypographyProps={{ sx: { fontWeight: 'bold' } }} />
+                <ListItemText primary="Rol" secondary={usuario.rol} slotProps={{ primary: { sx: { fontWeight: 'bold' } } }} />
               </ListItem>
               <ListItem disablePadding sx={{ py: 1 }}>
-                <ListItemText primary="Institución" secondary={usuario.institucion} primaryTypographyProps={{ sx: { fontWeight: 'bold' } }} />
+                <ListItemText primary="Institución" secondary={usuario.institucion} slotProps={{ primary: { sx: { fontWeight: 'bold' } } }} />
               </ListItem>
             </List>
             <Button variant="outlined" startIcon={<EditIcon />} onClick={handleEditar} sx={{ mt: 2 }}>

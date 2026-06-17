@@ -62,7 +62,7 @@ const ListaProyectos = () => {
       </Typography>
       <Grid container spacing={3}>
         {proyectoService.buscarProyecto(busqueda).map((proyecto) => (
-          <Grid item xs={12} sm={6} md={4} key={proyecto.id}>
+          <Grid size={{ xs: 12, sm: 6, md: 4 }} key={proyecto.id}>
             <ProyectoCard proyecto={proyecto} onEliminar={handleEliminar} />
           </Grid>
         ))}

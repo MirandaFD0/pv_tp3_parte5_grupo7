@@ -68,13 +68,13 @@ const FormularioProyecto = ({ onAgregar }) => {
         Agregar Proyecto
       </Typography>
       <Grid container spacing={2} sx={{ mb: 2 }}>
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <TextField fullWidth label="Título" name="titulo" value={nuevoProyecto.titulo} onChange={handleChange} size="small" />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <TextField fullWidth label="Categoría" name="categoria" value={nuevoProyecto.categoria} onChange={handleChange} size="small" />
         </Grid>
-        <Grid item xs={12} sm={4}>
+        <Grid size={{ xs: 12, sm: 4 }}>
           <FormControl fullWidth size="small">
             <InputLabel>Estado</InputLabel>
             <Select name="estado" value={nuevoProyecto.estado} label="Estado" onChange={handleChange}>
@@ -85,26 +85,26 @@ const FormularioProyecto = ({ onAgregar }) => {
         </Grid>
       </Grid>
       <Grid container spacing={2} sx={{ mb: 2 }}>
-        <Grid item xs={12} sm={6}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <TextField fullWidth label="Párrafo 1" value={nuevoProyecto.descripcion[0]} onChange={(e) => handleDescripcion(0, e.target.value)} size="small" />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid size={{ xs: 12, sm: 6 }}>
           <TextField fullWidth label="Párrafo 2" value={nuevoProyecto.descripcion[1]} onChange={(e) => handleDescripcion(1, e.target.value)} size="small" />
         </Grid>
       </Grid>
       <Grid container spacing={2} sx={{ mb: 2 }}>
         {nuevoProyecto.recursos.map((recurso, index) => (
-          <Grid item xs={12} sm={4} key={index}>
+          <Grid size={{ xs: 12, sm: 4 }} key={index}>
             <TextField fullWidth label={`URL ${recurso.tipo}`} value={recurso.url} onChange={(e) => handleRecurso(index, e.target.value)} size="small" />
           </Grid>
         ))}
       </Grid>
       {nuevoProyecto.equipo.map((miembro, index) => (
         <Grid container spacing={2} sx={{ mb: 2 }} key={index}>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <TextField fullWidth label="Nombre" value={miembro.nombre} onChange={(e) => handleEquipo(index, 'nombre', e.target.value)} size="small" />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          <Grid size={{ xs: 12, sm: 6 }}>
             <TextField fullWidth label="Rol" value={miembro.rol} onChange={(e) => handleEquipo(index, 'rol', e.target.value)} size="small" />
           </Grid>
         </Grid>
