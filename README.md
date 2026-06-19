@@ -33,5 +33,7 @@ Asimismo, se incorpora persistencia de datos mediante **LocalStorage**, garantiz
 - Material UI
 
 ```EJECUCION
+npm install
 npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
 npm run dev
