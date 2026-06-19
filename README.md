@@ -1,16 +1,40 @@
-# React + Vite
+# Trabajo Práctico N.º 3 – Parte 5
+# Integrantes del Grupo 7
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Camacho Leandro Abel Ezequiel - Github: @leandrocamacho02
 
-Currently, two official plugins are available:
+Miranda Facundo David - Github: @MirandaFD0
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Porco Lucas Ricardo - Github: @lucas777porco-ai
 
-## React Compiler
+## Gestión de Estado Global con React Context API y Persistencia Local
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Descripción
 
-## Expanding the ESLint configuration
+En esta etapa del proyecto se implementa un sistema de gestión de estado global utilizando *React Context API, permitiendo centralizar la información del usuario y compartirla entre múltiples componentes de la aplicación sin recurrir al mecanismo de *Prop Drilling.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Asimismo, se incorpora persistencia de datos mediante *LocalStorage*, garantizando la conservación de la información del usuario frente a recargas del navegador y mejorando la experiencia de uso de la aplicación.
+
+### Objetivos
+
+- Comprender el funcionamiento de React Context API.
+- Implementar un contexto global para la administración de datos compartidos.
+- Consumir estados globales mediante el hook useContext.
+- Actualizar información de manera dinámica entre componentes.
+- Aplicar persistencia de datos utilizando LocalStorage.
+- Integrar componentes visuales mediante Material UI o React Bootstrap.
+
+### Tecnologías Utilizadas
+
+- React
+- React Router DOM
+- React Context API
+- Hooks de React (useState, useEffect, useContext)
+- LocalStorage
+- Material UI
+
+EJECUCION
+npm install
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
+npm run dev
